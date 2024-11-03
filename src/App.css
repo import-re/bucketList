@@ -1,0 +1,82 @@
+/* app.css */
+#root {
+  max-width: 1280px;
+}
+
+.panel-DARK {
+  background-color: gray;
+}
+
+.panel-LIGHT {
+  background-color: white;
+}
+
+.header-content {
+  width: 100vw;
+  max-width: none;
+  margin: 0;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-LIGHT {
+  background-color: #ff95cb;
+  color: black;
+}
+
+.header-LIGHT a {
+  color: #360077;
+}
+
+.header-DARK a {
+  color: #ffcde5;
+}
+
+.header-DARK {
+  color: white;
+  background-color: #850044;
+}
+
+.header-content img {
+  width: 3em;
+}
+
+.inner-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: start;
+}
+
+
+.inner-LIGHT {
+  background-color: white;
+}
+
+.inner-DARK {
+  background-color: gray;
+}
+
+.main-component{
+  width: 100vw;
+  height: 80vh;
+  max-width: none;
+  margin: 0;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ul {
+  list-style-type:none;
+}
+
+.li {
+  list-style-type:none;
+}
+
