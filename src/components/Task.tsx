@@ -38,7 +38,7 @@ export default function Task({activity, dispatch}: { activity: Activity, dispatc
 
                 }}>
                 <input type={"checkbox"} onChange={handleCheck}></input>
-                {activity.text}
+                {"     " + activity.text}
             </li>
         </div>
     )
