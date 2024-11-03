@@ -1,7 +1,4 @@
 /* app.css */
-#root {
-  max-width: 1280px;
-}
 
 .panel-DARK {
   background-color: gray;
@@ -45,11 +42,16 @@
 
 .inner-wrapper {
   width: 100%;
+  max-width: none;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  align-items: start;
+  align-items: flex-start;
+  background-color: inherit;
+  height: 100%;
 }
+
 
 
 .inner-LIGHT {
@@ -84,9 +86,17 @@
   margin-bottom: 10%;
   width: 30vh;
   height: 5vh;
-  display: flex;
-  align-items: center;
   transition: box-shadow 0.3s ease;
+
+}
+
+.task li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  color: black;
 }
 
 .task:hover {

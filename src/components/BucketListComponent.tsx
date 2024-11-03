@@ -50,6 +50,8 @@ export default function BucketListComponent() {
     const theme: Theme = useContext(ThemeContext);
     const [activities, dispatch] = useReducer(activitiesReducer, []);
     const [text, setText] = useState("");
+    const [labelText, setLabelText] = useState("What is on your bucket list?");
+    const [size, setSize] = useState(21);
     const name: string = "main-component main-component-" + theme;
 
     function handleChange(event: ChangeEvent<HTMLInputElement>) {
@@ -60,13 +62,20 @@ export default function BucketListComponent() {
         if (text.length > 0) {
             dispatch({type: "ADD", payload: {id: Date.now(), text: text, done: false}});
             setText("");
+            setLabelText("What is on your bucket list?");
+            setSize(21);
+        } else if (labelText.includes("Please enter an activity")){
+            setLabelText(labelText + "!");
+            setSize(size + 1);
+        } else {
+            setLabelText("Please enter an activity");
         }
     }
 
     return (
         <div className={name}>
             <h1 style={{color: "pink"}}>Bucket List</h1>
-            <label className="label-text">What is on your bucket list?</label>
+            <label className="label-text" style={{fontSize: `${size}px`}}>{labelText}</label>
             <input type="text" value={text} onChange={handleChange}></input>
             <Button onClick={handleClick}>
                 Add activity

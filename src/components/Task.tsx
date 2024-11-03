@@ -1,12 +1,9 @@
 import * as React from "react";
-import {useState} from "react";
-import {Action, Activity} from "./BucketListComponent.tsx";
-// import Theme from "../types/themes.ts";
-// import ThemeContext from "./ThemeContext.tsx";
+import { useState } from "react";
+import { Action, Activity } from "./BucketListComponent.tsx";
 
-export default function Task({activity, dispatch}: { activity: Activity, dispatch: React.Dispatch<Action> }) {
+export default function Task({ activity, dispatch }: { activity: Activity; dispatch: React.Dispatch<Action> }) {
     const [checked, setChecked] = useState<boolean>(false);
-    // const theme: Theme = useContext(ThemeContext);
 
     function handleCheck() {
         if (checked) {
@@ -22,7 +19,6 @@ export default function Task({activity, dispatch}: { activity: Activity, dispatc
                 payload: activity,
             });
         }
-
     }
 
     return (
@@ -30,12 +26,27 @@ export default function Task({activity, dispatch}: { activity: Activity, dispatc
             <li
                 style={{
                     textDecoration: checked ? "line-through" : "none",
-                    color: checked ? "gray" : "black"
-
-                }}>
-                <input type={"checkbox"} onChange={handleCheck}></input>
-                {"     " + activity.text}
+                    color: checked ? "gray" : "black",
+                }}
+            >
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <input type="checkbox" onChange={handleCheck} />
+                    {" " + activity.text}
+                </div>
+                <button
+                    style={{
+                        border: 'none',
+                        background: 'none',
+                        color: 'red',
+                        fontSize: '18px',
+                        cursor: 'pointer',
+                        marginLeft: '10px'
+                    }}
+                    onClick={() => dispatch({ type: "DELETE", payload: activity })}
+                >
+                    &times;
+                </button>
             </li>
         </div>
-    )
+    );
 }
