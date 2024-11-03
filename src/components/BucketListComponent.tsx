@@ -56,12 +56,20 @@ export default function BucketListComponent() {
         setText(event.target.value);
     }
 
+    function handleClick() {
+        if (text.length > 0) {
+            dispatch({type: "ADD", payload: {id: Date.now(), text: text, done: false}});
+            setText("");
+        }
+    }
+
     return (
         <div className={name}>
             <h1 style={{color: "pink"}}>Bucket List</h1>
-            <input type="text" onChange={handleChange}></input>
-            <Button onClick={() => text.length > 0 ? dispatch({type: "ADD", payload: {id: Date.now(), text: text, done: false}}): null}>
-                Press me
+            <label className="label-text">What is on your bucket list?</label>
+            <input type="text" value={text} onChange={handleChange}></input>
+            <Button onClick={handleClick}>
+                Add activity
             </Button>
             {activities ?
                 <ul className="list">

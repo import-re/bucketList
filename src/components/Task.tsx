@@ -1,12 +1,12 @@
 import * as React from "react";
-import {useContext, useState} from "react";
+import {useState} from "react";
 import {Action, Activity} from "./BucketListComponent.tsx";
-import Theme from "../types/themes.ts";
-import ThemeContext from "./ThemeContext.tsx";
+// import Theme from "../types/themes.ts";
+// import ThemeContext from "./ThemeContext.tsx";
 
 export default function Task({activity, dispatch}: { activity: Activity, dispatch: React.Dispatch<Action> }) {
     const [checked, setChecked] = useState<boolean>(false);
-    const theme: Theme = useContext(ThemeContext);
+    // const theme: Theme = useContext(ThemeContext);
 
     function handleCheck() {
         if (checked) {
@@ -30,11 +30,7 @@ export default function Task({activity, dispatch}: { activity: Activity, dispatc
             <li
                 style={{
                     textDecoration: checked ? "line-through" : "none",
-                    color: checked && theme === Theme.LIGHT ? "gray" :
-                        checked && theme === Theme.DARK ? "black" :
-                            !checked && theme === Theme.DARK ? "white" :
-                                !checked && Theme.LIGHT ? "black" :
-                                    "black"
+                    color: checked ? "gray" : "black"
 
                 }}>
                 <input type={"checkbox"} onChange={handleCheck}></input>
